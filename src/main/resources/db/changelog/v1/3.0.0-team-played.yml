@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-team-played
+      author: diegobufalo
+      changes:
+        - createTable:
+            tableName: team_played
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: start_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: end_date
+                  type: date
+              - column:
+                  name: active
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: team_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_team_played_team_id
+                    references: team (id)
+              - column:
+                  name: player_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_team_played_player_id
+                    references: player (id)
+        - createSequence:
+            sequenceName: team_played_sequence_id
+            incrementBy: 50

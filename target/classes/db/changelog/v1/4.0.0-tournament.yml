@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-tournament
+      author: diegobufalo
+      changes:
+        - createTable:
+            tableName: tournament
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: tier
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: start_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: end_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lan
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: winner_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_tournament_winner_id
+                    references: team (id)
+              - column:
+                  name: mvp_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_tournament_mvp_id
+                    references: player (id)
+        - createSequence:
+            sequenceName: tournament_sequence_id
+            incrementBy: 50

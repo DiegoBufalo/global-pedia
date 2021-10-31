@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-tournament-team
+      author: diegobufalo
+      changes:
+        - createTable:
+            tableName: tournament_team
+            columns:
+              - column:
+                  name: tournament_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_tournament_team_tounament_id
+                    references: tournament(id)
+              - column:
+                  name: teams_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_tournament_team_team_id
+                    references: team(id)
