@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-usuario
+      author: diegobufalo
+      changes:
+        - createTable:
+            tableName: usuario
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: birthdate
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - createSequence:
+            sequenceName: usuario_sequence_id
+            incrementBy: 50
