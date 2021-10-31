@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-table-usuario
+      id: create-table-user
       author: diegobufalo
       changes:
         - createTable:
-            tableName: usuario
+            tableName: user
             columns:
               - column:
                   name: id
@@ -33,5 +33,5 @@ databaseChangeLog:
                   constraints:
                     nullable: false
         - createSequence:
-            sequenceName: usuario_sequence_id
+            sequenceName: user_sequence_id
             incrementBy: 50
