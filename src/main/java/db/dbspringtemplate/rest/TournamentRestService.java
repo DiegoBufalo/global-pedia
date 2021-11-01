@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/tournaments")
-public class TournamentRestService {
+public class TournamentRestService extends AllowCorsService{
 
     private final TournamentService tournamentService;
 

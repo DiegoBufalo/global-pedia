@@ -62,7 +62,7 @@ public class TeamServiceImpl implements TeamService {
                 .active(true)
                 .build();
 
-        return TeamDto.fromEntity(team);
+        return TeamDto.fromEntity(teamRepository.save(team));
     }
 
     @Override

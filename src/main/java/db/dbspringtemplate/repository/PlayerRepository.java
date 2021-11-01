@@ -12,6 +12,6 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
     @Query("select x from Player x where x.name = ?1")
     List<Player> findByName(String name);
 
-    @Query("select x from Player x where x.active = true")
+    @Query("select p from Player p where p.active = true")
     List<Player> findAllActive();
 }

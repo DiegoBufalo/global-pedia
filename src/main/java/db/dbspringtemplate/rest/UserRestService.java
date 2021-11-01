@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/users")
-public class UserRestService {
+public class UserRestService extends AllowCorsService{
 
     private final UserService userService;
 

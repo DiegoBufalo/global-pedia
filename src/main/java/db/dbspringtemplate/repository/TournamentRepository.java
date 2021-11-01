@@ -15,4 +15,9 @@ public interface TournamentRepository extends JpaRepository<Tournament, Long> {
 
     @Query("select x from #{#entityName} x where x.name = ?1 and x.startDate = ?2")
     List<Tournament> findAllByNameAndStartDate(String name, LocalDate startDate);
+
+    @Query("select t from Tournament t left join t.teams teams where teams.id = ?1")
+    List<Tournament> findTournamentsByTeam(Long id);
+
+
 }

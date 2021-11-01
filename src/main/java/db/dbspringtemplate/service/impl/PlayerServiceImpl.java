@@ -4,6 +4,7 @@ import db.dbspringtemplate.dto.PlayerDto;
 import db.dbspringtemplate.error.RestException;
 import db.dbspringtemplate.model.Player;
 import db.dbspringtemplate.repository.PlayerRepository;
+import db.dbspringtemplate.repository.TournamentRepository;
 import db.dbspringtemplate.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,10 +19,12 @@ public class PlayerServiceImpl implements PlayerService {
     public static final String PLAYER_NOT_FOUND = "Player not found";
 
     private final PlayerRepository playerRepository;
+    private final TournamentRepository tournamentRepository;
 
     @Autowired
-    public PlayerServiceImpl(PlayerRepository playerRepository) {
+    public PlayerServiceImpl(PlayerRepository playerRepository,TournamentRepository tournamentRepository) {
         this.playerRepository = playerRepository;
+        this.tournamentRepository = tournamentRepository;
     }
 
     @Override

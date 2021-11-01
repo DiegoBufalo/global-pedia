@@ -1,5 +1,6 @@
 package db.dbspringtemplate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,6 +24,7 @@ public class TeamPlayed {
     @OneToOne(targetEntity = Team.class)
     private Team team;
 
+    @JsonIgnore
     @JoinColumn(name = "player_id")
     @ManyToOne(targetEntity = Player.class)
     private Player player;

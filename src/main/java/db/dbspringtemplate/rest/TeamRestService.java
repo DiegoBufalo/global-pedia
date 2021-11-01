@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/teams")
-public class TeamRestService {
+public class TeamRestService extends AllowCorsService{
 
     private final TeamService teamService;
 
